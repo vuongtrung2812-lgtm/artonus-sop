@@ -12,11 +12,13 @@ header.hd{padding:22px 20px 14px;text-align:center;border-bottom:1px solid var(-
 .h-title{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:25px;color:var(--ink);margin:0;letter-spacing:.4px}
 .rule{width:46px;height:2px;background:var(--gold);margin:11px auto 0}
 .roleswitch{position:absolute;left:14px;top:16px;border:none;background:none;color:var(--gold);font-family:"Lato",sans-serif;font-size:13px;font-weight:700;cursor:pointer;padding:4px}
-.appswitch{display:flex;justify-content:center;align-items:center;gap:2px;padding:6px;background:var(--panel);border-bottom:1px solid var(--line)}
-.appswitch[hidden]{display:none}  /* display:flex above otherwise beats the hidden attr → empty bar on phones */
-.appswitch a,.appswitch span{font:700 10.5px/1 "Lato",system-ui,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:var(--brown);text-decoration:none;padding:7px 12px;border-radius:999px;white-space:nowrap}
-.appswitch a:hover{background:#fff}
-.appswitch .on{background:var(--brown);color:var(--ivory)}
+/* app-switcher pill — matches the Membership/Referral apps' pill */
+.appswitch{display:flex;justify-content:center;padding:14px 12px 2px}
+.appswitch[hidden]{display:none}  /* display:flex otherwise beats the hidden attr → empty bar on phones */
+.swpill{display:inline-flex;align-items:center;gap:2px;padding:3px;background:var(--panel);border:1px solid var(--line);border-radius:999px;box-shadow:0 1px 5px rgba(58,35,24,.14)}
+.swpill a,.swpill span{font:800 11px/1 "Lato",system-ui,sans-serif;letter-spacing:.4px;text-transform:uppercase;color:var(--brown);text-decoration:none;padding:7px 13px;border-radius:999px;white-space:nowrap;transition:.15s}
+.swpill a:hover{background:#fff;color:var(--ink)}
+.swpill .on{background:linear-gradient(135deg,var(--brown),#7a5c43);color:var(--ivory)}
 .rolepick{padding:20px 16px 30px}
 .rolepick .pintro{text-align:center;color:var(--mut);font-size:13px;margin:4px 0 18px}
 .rolecard{display:flex;align-items:center;gap:14px;padding:18px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;margin:11px 0;cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .05s}
@@ -190,12 +192,15 @@ var REFERRAL_URL='https://script.google.com/macros/s/AKfycbxLmcYtKzsoQSzZAv2-XWO
    phones (FROM_TERMINAL false) the sibling apps are account-locked, so it stays hidden. */
 function renderAppSwitch(){
  var el=document.getElementById('appswitch'); if(!el)return;
- if(typeof FROM_TERMINAL==='undefined'||!FROM_TERMINAL){el.hidden=true;el.innerHTML='';return;}
+ var onPicker=!document.getElementById('rolepick').hidden;
+ if(typeof FROM_TERMINAL==='undefined'||!FROM_TERMINAL||!onPicker){el.hidden=true;el.innerHTML='';return;}
  el.hidden=false;
- el.innerHTML='<a href="'+TERMINAL_URL+'" target="_top">‹ Terminal</a>'
+ el.innerHTML='<div class="swpill">'
+   +'<a href="'+TERMINAL_URL+'" target="_top">‹ Terminal</a>'
    +'<span class="on">Onboarding</span>'
    +'<a href="'+MEMBERSHIP_URL+'" target="_top">Membership</a>'
-   +'<a href="'+REFERRAL_URL+'" target="_top">Referral</a>';
+   +'<a href="'+REFERRAL_URL+'" target="_top">Referral</a>'
+   +'</div>';
 }
 const $=id=>document.getElementById(id);
 const esc=s=>(s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -341,16 +346,15 @@ function unlock(r,code){
   $('q').value='';renderList();window.scrollTo(0,0);
  }).catch(err=>{ $('list').innerHTML='<div class="empty">Couldn’t load. '+esc(err&&err.message||'')+'</div>'; });
 }
-/* top-left switch: "‹ Terminal" on the picker (only when launched from the salon
-   Terminal), "‹ All roles" inside a role */
+/* "‹ All roles" appears only inside a role. Terminal navigation lives in the
+   app-switcher pill now (no more redundant top-left Terminal button). */
 function setSwitch(mode){
  const s=$('roleSwitch');
  if(mode==='roles'){s.hidden=false;s.textContent='‹ All roles';s.href='#';s.dataset.mode='r';}
- else if(FROM_TERMINAL){s.hidden=false;s.textContent='‹ Terminal';s.href=TERMINAL_URL;s.dataset.mode='t';}
  else s.hidden=true;
 }
-function toRoles(){ role=null;hideAll();$('rolepick').hidden=false;setSwitch('terminal');$('ownerToggle').hidden=true;$('hTitle').textContent='Team SOP';renderRoles(); }
-function hideAll(){['rolepick','gate','main','detail'].forEach(id=>{const el=$(id);if(id==='detail')el.classList.remove('open');else el.hidden=true;});document.documentElement.classList.remove('dopen');}
+function toRoles(){ role=null;hideAll();$('rolepick').hidden=false;setSwitch('terminal');$('ownerToggle').hidden=true;$('hTitle').textContent='Team SOP';renderRoles();renderAppSwitch(); }
+function hideAll(){['rolepick','gate','main','detail'].forEach(id=>{const el=$(id);if(id==='detail')el.classList.remove('open');else el.hidden=true;});document.documentElement.classList.remove('dopen');renderAppSwitch();}
 
 /* ---------- list + search ---------- */
 const canSee=c=>owner||c.vis!=='owner';
@@ -473,7 +477,7 @@ function boot(){
  $('q').addEventListener('input',()=>{query=$('q').value;renderList();});
  $('ownerToggle').addEventListener('click',ownerFlow);
  $('rolepick').hidden=false;$('rolepick').innerHTML=loaderHtml('Waking up…');
- callServer('getRoles',{}).then(rs=>{ROLES=rs||[];renderRoles();setSwitch('terminal');})
+ callServer('getRoles',{}).then(rs=>{ROLES=rs||[];renderRoles();setSwitch('terminal');renderAppSwitch();})
   .catch(e=>{$('rolepick').innerHTML='<div class="empty">Couldn’t load roles. '+esc(e&&e.message||'')+'</div>';});
 }
 /* Apps Script HtmlService evaluates this AFTER the iframe doc has loaded —
