@@ -13,6 +13,7 @@ header.hd{padding:22px 20px 14px;text-align:center;border-bottom:1px solid var(-
 .rule{width:46px;height:2px;background:var(--gold);margin:11px auto 0}
 .roleswitch{position:absolute;left:14px;top:16px;border:none;background:none;color:var(--gold);font-family:"Lato",sans-serif;font-size:13px;font-weight:700;cursor:pointer;padding:4px}
 .appswitch{display:flex;justify-content:center;align-items:center;gap:2px;padding:6px;background:var(--panel);border-bottom:1px solid var(--line)}
+.appswitch[hidden]{display:none}  /* display:flex above otherwise beats the hidden attr → empty bar on phones */
 .appswitch a,.appswitch span{font:700 10.5px/1 "Lato",system-ui,sans-serif;letter-spacing:.6px;text-transform:uppercase;color:var(--brown);text-decoration:none;padding:7px 12px;border-radius:999px;white-space:nowrap}
 .appswitch a:hover{background:#fff}
 .appswitch .on{background:var(--brown);color:var(--ivory)}
