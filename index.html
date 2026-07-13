@@ -116,6 +116,74 @@ footer.ft{text-align:center;color:var(--gold2);font-size:9.5px;letter-spacing:2.
 .ownerbtn.on{background:var(--brown);color:var(--ivory);border-color:var(--brown)}
 .fnote{margin-top:11px}
 .loading{text-align:center;color:var(--mut);padding:60px 20px;font-style:italic}
+/* workflow map */
+.flowtile{border-color:#e2c98f!important;background:linear-gradient(#fff9ec,#fff)}
+.flowtile .badge{background:#fff;border-color:#e2c98f}
+.flow{padding:2px 0 24px}
+.fintro{color:var(--mut);font-size:12.5px;font-style:italic;margin:2px auto 18px;text-align:center;max-width:320px}
+.fnode{display:flex;align-items:center;gap:10px;width:100%;max-width:330px;margin:0 auto;padding:12px 14px;background:#fff;border:1px solid var(--line);border-radius:13px;text-decoration:none;box-shadow:0 1px 4px rgba(58,35,24,.08);transition:.15s;cursor:pointer}
+.fnode:hover{border-color:var(--gold);box-shadow:0 3px 12px rgba(58,35,24,.13)}
+.fnode:active{transform:scale(.99)}
+.fbadge{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--brown);color:var(--ivory);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.flab{font-weight:700;color:var(--ink);font-size:14px;line-height:1.2}
+.flab em{display:block;font-style:normal;font-weight:400;color:var(--mut);font-size:11.5px;margin-top:1px}
+.fchev{margin-left:auto;color:var(--gold);font-size:18px;font-weight:300}
+.fnode.fend{background:linear-gradient(135deg,var(--brown),#7a5c43);border-color:transparent}
+.fnode.fend .flab{color:var(--ivory)}
+.fnode.fend .fbadge{background:rgba(255,255,255,.22);color:var(--ivory)}
+.fnode.fend .flab em{color:rgba(255,247,235,.72)}
+.fconn{width:2px;min-height:22px;background:var(--line);margin:5px auto;position:relative}
+.fconn span{position:absolute;left:11px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:10px;color:var(--gold2);font-weight:700;letter-spacing:.3px}
+.fbr{max-width:330px;margin:6px auto;padding-left:24px;border-left:2px dashed #dcc9a2}
+.fbrow{display:flex;align-items:center;gap:8px;margin:8px 0}
+.fwhen{flex:0 0 68px;font-size:9.5px;color:var(--gold2);font-weight:700;text-transform:uppercase;letter-spacing:.3px;text-align:right;line-height:1.25}
+.fnode.fbranch{max-width:none;flex:1;padding:9px 12px;background:var(--panel);box-shadow:none}
+.fnode.fbranch .fbadge{width:24px;height:24px;font-size:11px;background:var(--gold)}
+.fnode.fbranch .flab{font-size:12.5px}
+.fany{max-width:330px;margin:24px auto 0;text-align:center;border-top:1px solid var(--line);padding-top:16px}
+.fanyt{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);font-weight:700;margin-bottom:9px}
+.fchips{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.fchip{font-size:12px;font-weight:700;color:var(--brown);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 13px;text-decoration:none;cursor:pointer}
+.fchip:hover{background:#fff;border-color:var(--gold)}
+/* the client loop — a closed, repeating cycle */
+.cycle{max-width:346px;margin:0 auto;background:linear-gradient(#fffdf6,#fff7e6);border:1.5px solid #ecd9a8;border-radius:18px;padding:12px 12px 16px;box-shadow:0 2px 12px rgba(58,35,24,.07)}
+.cyclehead{text-align:center;font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);font-weight:700;margin:2px 0 13px}
+.cyclebody{position:relative;padding-left:30px}
+.returnrail{position:absolute;left:0;top:22px;bottom:22px;width:19px;border:2px solid var(--gold);border-right:none;border-radius:13px 0 0 13px;pointer-events:none}
+.returnrail::after{content:'';position:absolute;top:-2px;right:-6px;width:0;height:0;border:6px solid transparent;border-left-color:var(--gold)}
+.returnrail span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:8px;font-weight:700;letter-spacing:.2px;color:var(--gold2);text-transform:uppercase;text-align:center;line-height:1.15;background:linear-gradient(#fffbf2,#fff6e2);padding:5px 0}
+.fnode.floop{border-color:#e7d3a4}
+.fmid{max-width:280px;margin:1px auto;text-align:center;font-size:10.5px;font-style:italic;font-weight:600;color:var(--gold2)}
+.fconn.short{min-height:11px}
+.frule{max-width:346px;margin:16px auto 0;text-align:center;font-size:12px;font-weight:700;letter-spacing:.2px;color:var(--brown);background:var(--panel);border:1px dashed #d8c8a6;border-radius:11px;padding:10px 12px}
+/* care phase — "while they're in the chair" (informational, not a card) */
+.fphase{max-width:330px;margin:0 auto;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:11px;padding:10px 14px}
+.fphtitle{font-size:10.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--gold2);margin-bottom:6px}
+.fphlist{margin:0;padding:0 0 0 14px;list-style:none}
+.fphlist li{position:relative;font-size:12.5px;color:var(--ink);line-height:1.45;margin:3px 0}
+.fphlist li::before{content:'·';position:absolute;left:-12px;color:var(--gold);font-weight:700;font-size:15px;top:-1px}
+/* track 2 — between clients (slow vs. slammed + priority ladder) */
+.fband{max-width:346px;margin:20px auto 0;border-top:1px solid var(--line);padding-top:17px}
+.fbandhead{text-align:center;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--brown);font-weight:700}
+.fbandintro{text-align:center;font-size:11.5px;font-style:italic;color:var(--mut);margin:5px auto 13px;max-width:290px}
+.fmode{display:block;max-width:330px;margin:10px auto;border-radius:12px;padding:11px 14px;text-decoration:none;border:1px solid var(--line)}
+.fmhead{font-size:12.5px;font-weight:700;margin-bottom:6px;display:flex;align-items:center}
+.fmode .fphlist,.fmode ul{margin:0;padding:0 0 0 14px;list-style:none}
+.fmode li{position:relative;font-size:12.5px;line-height:1.45;color:var(--ink);margin:3px 0}
+.fmode li::before{content:'·';position:absolute;left:-12px;font-weight:700;font-size:15px;top:-1px}
+.fmode.busy{background:linear-gradient(#fff8f3,#fff);border-color:#e8c9b4}
+.fmode.busy .fmhead{color:#9a4a24}
+.fmode.busy li::before{color:#c0703f}
+.fmode.slow{background:linear-gradient(#fffdf6,#fff8ea);border-color:#ecd9a8;cursor:pointer;transition:.15s}
+.fmode.slow .fmhead{color:var(--brown)}
+.fmode.slow li::before{color:var(--gold)}
+.fmode.slow .fchev{margin-left:auto;color:var(--gold);font-size:17px;font-weight:300}
+.fmode.slow:hover{border-color:var(--gold);box-shadow:0 3px 12px rgba(58,35,24,.11)}
+.fpri{max-width:330px;margin:14px auto 0;text-align:center}
+.fprihead{font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold2);font-weight:700;margin-bottom:9px}
+.fprichain{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px}
+.fpm{font-size:11px;font-weight:700;color:var(--brown);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+.fparrow{color:var(--gold);font-weight:700}
 /* branded loader — the mark, breathing */
 .loader{display:flex;flex-direction:column;align-items:center;gap:13px;padding:64px 20px;color:var(--mut);font-size:13px;font-style:italic}
 .loader img{width:64px;height:auto;animation:markpulse 1.4s ease-in-out infinite}
@@ -210,7 +278,7 @@ const toks=q=>{const all=q.toLowerCase().split(/\s+/).filter(Boolean);const k=al
 const marker=tk=>new RegExp('('+tk.map(escRe).join('|')+')','ig');
 
 let ROLES=[], role=null, cards=[], BADGE2ID={}, query='', owner=false;
-let curCode='', ownerPin='', curCardId=null;
+let curCode='', ownerPin='', curCardId=null, navStack=[];
 const IMGCACHE=new Map();
 
 /* ---------- markdown pipeline (runtime, from Sheet body_md) ---------- */
@@ -291,6 +359,66 @@ const normBadge=b=>{b=String(b==null?'':b);return /^\d{1,2}$/.test(b)?b.padStart
 /* handbook anchor links (#section-slug) -> the matching card in THIS role */
 const normKey=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
 let ANCH={};
+
+/* ---------- workflow map (per role): a closed loop, action-first ---------- */
+const FLOWS={
+ 'front-desk':{
+  intro:'Your day runs on two tracks: the client loop, and the desk work that fills the gaps. Tap any card for the full steps.',
+  open:{badge:'00',label:'Open the salon',do:'Power on · set the room · check the day vs. Wix'},
+  loop1:{badge:'01',label:'Greet & check in',do:'Welcome · confirm the service · write the ticket'},
+  care:{title:'While they’re in the chair',items:['Offer a drink — water, coffee, tea','One calm mid-service check-in','Support the technician — towels, tools','Watch for the finish — get ready to check out']},
+  loop2:{badge:'02',label:'Check out & take payment',do:'Match ticket to POS · take payment · thank them',branches:[
+    {badge:'04',label:'Deduct a visit',when:'has a package'},
+    {badge:'07',label:'Ask for a review',when:'happy client'},
+    {badge:'05',label:'Invite to referral',when:'after the review'},
+    {badge:'03',label:'Sell a package',when:'if interested'}]},
+  between:{
+   head:'Between clients — the other half of your day',
+   intro:'The gaps aren’t empty. What you do depends on the room.',
+   busy:{title:'When it’s slammed',items:['The client in front of you wins','Phone rings? “One moment, please” — hold it','One task, finished, before the next']},
+   slow:{badge:'11',title:'When it’s slow',items:['Return the calls you held','Verify cards on pending requests','Restock drinks, tidy the desk','Scan who’s coming — prep ahead','Send 3-day follow-ups']},
+   priority:['In-person client','Technician','Phone','Messages']
+  },
+  close:{badge:'08',label:'Close the salon',do:'Settle batch · log everyone out · reset the room'},
+  rule:'Every task: Complete → Check → Record',
+  anytime:[{badge:'06',label:'Difficult client'},{badge:'10',label:'Price lookup'},{badge:'09',label:'Situations'}]
+ }
+};
+function fnode(n,cls){var id=BADGE2ID[n.badge];if(n.badge&&!id)return'';
+ return '<a class="fnode'+(cls?' '+cls:'')+'"'+(id?' data-goto="'+id+'"':'')+'>'
+   +(n.badge?'<span class="fbadge">'+esc(n.badge)+'</span>':'')
+   +'<span class="flab">'+esc(n.label)+(n.do?'<em>'+esc(n.do)+'</em>':'')+'</span>'
+   +(id?'<span class="fchev">›</span>':'')+'</a>';}
+function flist(items){var h='<ul class="fphlist">';items.forEach(function(it){h+='<li>'+esc(it)+'</li>';});return h+'</ul>';}
+function fphase(p){return '<div class="fphase"><div class="fphtitle">'+esc(p.title)+'</div>'+flist(p.items)+'</div>';}
+function fmode(m,cls,gotoId){var tag=gotoId?'a':'div',attr=gotoId?' data-goto="'+gotoId+'"':'';
+ return '<'+tag+' class="fmode '+cls+'"'+attr+'><div class="fmhead">'+esc(m.title)+(gotoId?'<span class="fchev">›</span>':'')+'</div>'+flist(m.items)+'</'+tag+'>';}
+function renderFlow(){
+ var F=FLOWS[role];if(!F)return'<div class="empty">No map for this role yet.</div>';
+ var h='<p class="fintro">'+esc(F.intro)+'</p>';
+ h+=fnode(F.open,'fend')+'<div class="fconn"></div>';
+ /* track 1 — the client loop */
+ h+='<div class="cycle"><div class="cyclehead">↻ Every client — repeats all day</div><div class="cyclebody">'
+   +'<div class="returnrail"><span>next<br>client</span></div><div class="cyclesteps">';
+ h+=fnode(F.loop1,'floop');
+ h+='<div class="fconn short"></div>'+fphase(F.care)+'<div class="fconn short"></div>';
+ h+=fnode(F.loop2,'floop');
+ if(F.loop2.branches){h+='<div class="fbr">';F.loop2.branches.forEach(function(b){
+   h+='<div class="fbrow"><span class="fwhen">'+esc(b.when)+'</span>'+fnode(b,'fbranch')+'</div>';});h+='</div>';}
+ h+='</div></div></div>';
+ /* track 2 — between clients */
+ var B=F.between;
+ h+='<div class="fband"><div class="fbandhead">'+esc(B.head)+'</div><p class="fbandintro">'+esc(B.intro)+'</p>';
+ h+=fmode(B.busy,'busy',null)+fmode(B.slow,'slow',BADGE2ID[B.slow.badge]);
+ h+='<div class="fpri"><div class="fprihead">When it all hits at once</div><div class="fprichain">';
+ B.priority.forEach(function(p,i){if(i)h+='<span class="fparrow">›</span>';h+='<span class="fpm">'+esc(p)+'</span>';});
+ h+='</div></div></div>';
+ h+='<div class="fconn"></div>'+fnode(F.close,'fend');
+ if(F.rule){h+='<div class="frule">'+esc(F.rule)+'</div>';}
+ h+='<div class="fany"><div class="fanyt">Any moment</div><div class="fchips">';
+ F.anytime.forEach(function(n){var id=BADGE2ID[n.badge];if(id)h+='<a class="fchip" data-goto="'+id+'">'+esc(n.badge+' · '+n.label)+'</a>';});
+ return h+'</div></div>';
+}
 function buildCards(rows,situations){
  BADGE2ID={};ANCH={};
  (rows||[]).forEach(r=>{ANCH[normKey(r.title)]=r.id;});
@@ -303,6 +431,7 @@ function buildCards(rows,situations){
   (s.photos||[]).forEach(pid=>{html+='<span class="imgph" data-sitimg="'+esc(pid)+'" data-w="680">Loading picture…</span>';});
   cards.push({id:'sit-'+s.id,role:role,num:'”',title:s.title,subtitle:'Logged by the team',group:'situations',vis:'staff',html,text:plain(html)});
  });
+ if(FLOWS[role]){cards.unshift({id:'flow-'+role,role:role,num:'',title:'The day — a map',subtitle:'See the whole flow · tap any step',group:'start',vis:'staff',special:'flow',html:'',text:'day map workflow flow overview picture'});}
 }
 
 /* ---------- rendering: role picker ---------- */
@@ -354,7 +483,7 @@ function setSwitch(mode){
  else s.hidden=true;
 }
 function toRoles(){ role=null;hideAll();$('rolepick').hidden=false;setSwitch('terminal');$('ownerToggle').hidden=true;$('hTitle').textContent='Team SOP';renderRoles();renderAppSwitch(); }
-function hideAll(){['rolepick','gate','main','detail'].forEach(id=>{const el=$(id);if(id==='detail')el.classList.remove('open');else el.hidden=true;});document.documentElement.classList.remove('dopen');renderAppSwitch();}
+function hideAll(){navStack=[];['rolepick','gate','main','detail'].forEach(id=>{const el=$(id);if(id==='detail')el.classList.remove('open');else el.hidden=true;});document.documentElement.classList.remove('dopen');renderAppSwitch();}
 
 /* ---------- list + search ---------- */
 const canSee=c=>owner||c.vis!=='owner';
@@ -362,8 +491,8 @@ function snippet(text,tk){let bi=-1;for(const t of tk){const i=text.toLowerCase(
  if(bi<0)return'';const s=Math.max(0,bi-42),e=Math.min(text.length,bi+80);
  let f=esc((s>0?'… ':'')+text.slice(s,e).trim()+(e<text.length?' …':''));return f.replace(marker(tk),'<mark>$1</mark>');}
 function tileEl(c,tk){
- const t=document.createElement('div');t.className='tile'+(c.vis==='owner'?' owner':'')+(c.group==='situations'?' sit':'');t.onclick=()=>openCard(c.id);
- const badge=(c.num==='§')?'<img class="bmono" src="'+MARK+'" alt="">':esc(c.num);
+ const t=document.createElement('div');t.className='tile'+(c.vis==='owner'?' owner':'')+(c.group==='situations'?' sit':'')+(c.special==='flow'?' flowtile':'');t.onclick=()=>openCard(c.id);
+ const badge=(c.special==='flow'||c.num==='§')?'<img class="bmono" src="'+MARK+'" alt="">':esc(c.num);
  t.innerHTML='<div class="badge">'+badge+'</div><div class="txt"><div class="tt">'+esc(c.title)+'</div><div class="ts">'+esc(c.subtitle)+'</div></div><div class="chev">›</div>';
  if(tk&&tk.length){const sn=snippet(c.text,tk);if(sn){const w=document.createElement('div');w.appendChild(t);const d=document.createElement('div');d.className='snip';d.innerHTML=sn;w.appendChild(d);return w;}}
  return t;
@@ -385,12 +514,22 @@ function renderList(){
 }
 function highlight(el,tk){if(!tk||!tk.length)return;const nodes=[];const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);while(w.nextNode())nodes.push(w.currentNode);
  nodes.forEach(n=>{const v=n.nodeValue;if(!v.trim())return;const re=marker(tk);if(re.test(v)){const sp=document.createElement('span');sp.innerHTML=esc(v).replace(marker(tk),'<mark>$1</mark>');n.replaceWith(sp);}});}
-function openCard(id){const c=cards.find(x=>x.id===id);if(!c)return;
- curCardId=id;
- $('dtitle').textContent=(/^\d{2}$/.test(c.num)?c.num+' · ':'')+c.title;$('dcontent').innerHTML=c.html;
+function openCard(id,opts){opts=opts||{};const c=cards.find(x=>x.id===id);if(!c)return;
+ const wasOpen=$('detail').classList.contains('open');
+ if(!wasOpen)navStack=[];                                    /* fresh open from the list */
+ else if(!opts.back&&curCardId&&curCardId!==id)navStack.push(curCardId); /* going deeper — remember where we were */
+ curCardId=id;updateBack();
  $('detail').classList.add('open');$('detail').scrollTop=0;document.documentElement.classList.add('dopen');
+ if(c.special==='flow'){$('dtitle').textContent=c.title;$('dcontent').innerHTML='<div class="flow">'+renderFlow()+'</div>';return;}
+ $('dtitle').textContent=(/^\d{2}$/.test(c.num)?c.num+' · ':'')+c.title;$('dcontent').innerHTML=c.html;
  highlight($('dcontent'),toks(query));
  loadImages($('dcontent'));initTasks($('dcontent'),id);}
+function updateBack(){const b=$('back');if(!b)return;
+ const prev=navStack.length?cards.find(x=>x.id===navStack[navStack.length-1]):null;
+ b.innerHTML='‹ '+(prev?(prev.special==='flow'?'Map':'Back'):'Back');}
+function goBack(){
+ if(navStack.length){openCard(navStack.pop(),{back:true});}
+ else{$('detail').classList.remove('open');document.documentElement.classList.remove('dopen');navStack=[];}}
 
 /* ---------- situations: submit (with optional photos) ---------- */
 function compressImg(file){
@@ -459,10 +598,10 @@ function ownerFlow(){
 /* ---------- wire + boot ---------- */
 function boot(){
  renderAppSwitch();
- $('back').onclick=()=>{$('detail').classList.remove('open');document.documentElement.classList.remove('dopen');};
+ $('back').onclick=goBack;
  $('roleSwitch').addEventListener('click',e=>{if($('roleSwitch').dataset.mode!=='t'){e.preventDefault();toRoles();}});
  $('dcontent').addEventListener('click',e=>{
-  const x=e.target.closest('.xref');if(x){openCard(x.dataset.goto);return;}
+  const x=e.target.closest('[data-goto]');if(x){e.preventDefault();openCard(x.dataset.goto);return;}
   const a=e.target.closest('a[href]');if(!a)return;
   const href=a.getAttribute('href')||'';
   if(a.target==='_blank')return;                       /* external: let it open a new tab */
